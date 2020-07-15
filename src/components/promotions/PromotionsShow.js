@@ -1,19 +1,19 @@
 import React from 'react';
 import {useShowController, ImageField, Show} from 'react-admin';
 import {Typography, Grid, CardContent, Card} from '@material-ui/core';
-import {SubOffersTitle} from './SubOffersTitle';
+import {PromotionsTitle} from './PromotionsTitle';
 import {CustomBoolean} from '../../common/fields/Boolean';
 import {useMediaQuery} from '@material-ui/core';
-import {useStyles} from './SubOffersStyles';
+import {useStyles} from './PromotionsStyles';
 
-const SubOffersShow = (props) => {
+const PromotionsShow = (props) => {
 	const {record} = useShowController(props);
 	const classes = useStyles();
 	console.log(record, 'Record');
 	const isSmall = useMediaQuery((theme) => theme.breakpoints.down('xs'));
 	if (!record) return null;
 	return (
-		<Show title={<SubOffersTitle />} {...props}>
+		<Show title={<PromotionsTitle />} {...props}>
 			{isSmall ? (
 				<Card>
 					<CardContent>
@@ -107,4 +107,4 @@ const SubOffersShow = (props) => {
 	);
 };
 
-export default SubOffersShow;
+export default PromotionsShow;

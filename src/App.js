@@ -7,6 +7,7 @@ import {Layout} from './components/layout';
 
 import Users from './components/users';
 import Offers from './components/offers';
+import Promotions from './components/promotions';
 
 import themeReducer from './themeReducer';
 import customRoutes from './routes';
@@ -30,6 +31,7 @@ const App = (props) => {
 			{(permissions) =>
 				permissions === 'ADMIN' && [
 					<Resource options={{label: 'Ofertas'}} name="offers" {...Offers} />,
+					<Resource options={{label: 'Promociones'}} name="promotions" {...Promotions} />,
 					<Resource options={{label: 'Usuarios'}} name="users" {...Users} />,
 				]
 			}

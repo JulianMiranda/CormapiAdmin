@@ -3,8 +3,8 @@ import {useSelector} from 'react-redux';
 import {useMediaQuery} from '@material-ui/core';
 import {MenuItemLink} from 'react-admin';
 
-import offers from '../offers'; /* 
-import suboffers from '../suboffers'; */
+import offers from '../offers';
+import promotions from '../promotions';
 import users from '../users';
 import SubMenu from './SubMenu';
 import SettingsIcon from '@material-ui/icons/Settings';
@@ -28,7 +28,7 @@ const Menu = ({onMenuClick, dense, logout}) => {
 				handleToggle={() => handleToggle('menuOffers')}
 				isOpen={state.menuOffers}
 				sidebarIsOpen={open}
-				name="Ofertas"
+				name="Descuentos"
 				icon={<offers.icon />}
 				dense={dense}
 			>
@@ -40,14 +40,14 @@ const Menu = ({onMenuClick, dense, logout}) => {
 					sidebarIsOpen={open}
 					dense={dense}
 				/>
-				{/* <MenuItemLink
-					to={`/suboffers`}
-					primaryText="SubOfertas"
-					leftIcon={<suboffers.icon />}
+				<MenuItemLink
+					to={`/promotions`}
+					primaryText="Promociones"
+					leftIcon={<promotions.icon />}
 					onClick={onMenuClick}
 					sidebarIsOpen={open}
 					dense={dense}
-				/> */}
+				/>
 			</SubMenu>
 			<MenuItemLink
 				to={`/users`}

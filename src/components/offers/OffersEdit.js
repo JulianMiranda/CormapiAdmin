@@ -37,7 +37,7 @@ const OffersForm = (props) => {
 							<Grid item sm={6} xs={12}>
 								<ImageInput
 									source="image"
-									resource="suboffers"
+									resource="promotions"
 									accept="image/*"
 									placeholder={<p>Drop your file here</p>}
 								>

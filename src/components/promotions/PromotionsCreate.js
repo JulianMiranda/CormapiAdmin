@@ -1,27 +1,26 @@
 import React from 'react';
+
 import {
-	Edit,
+	Create,
 	TextInput,
 	ImageInput,
-	ReferenceInput,
 	ImageField,
+	ReferenceInput,
 	SelectInput,
 	Toolbar,
 	FormWithRedirect,
-	BooleanInput,
 } from 'react-admin';
-import {SubOffersTitle} from './SubOffersTitle';
-import {Grid, CardContent, Card} from '@material-ui/core';
+import {Grid, Card, CardContent} from '@material-ui/core';
 
-const SubOffersEdit = (props) => {
+const PromotionsCreate = (props) => {
 	return (
-		<Edit {...props} title={<SubOffersTitle />} component="div">
-			<SubOffersForm />
-		</Edit>
+		<Create {...props} title="Crear SubOferta" component="div">
+			<PromotionsForm />
+		</Create>
 	);
 };
 
-const SubOffersForm = (props) => {
+const PromotionsForm = (props) => {
 	return (
 		<FormWithRedirect
 			{...props}
@@ -31,25 +30,24 @@ const SubOffersForm = (props) => {
 						<CardContent>
 							<Grid container spacing={2}>
 								<Grid item sm={6} xs={12}>
-									<TextInput label="Nombre" source="name" />
-								</Grid>{' '}
+									<TextInput label="Nombre" source="name" resource="units" required />
+								</Grid>
+
 								<Grid item sm={6} xs={12}>
-									<ReferenceInput label="Oferta" source="category.id" reference="offers">
+									<ReferenceInput source="category" reference="offers">
 										<SelectInput source="name" />
 									</ReferenceInput>
 								</Grid>
 								<Grid item sm={6} xs={12}>
 									<ImageInput
 										source="image"
-										resource="suboffers"
+										resource="promotions"
 										accept="image/*"
 										placeholder={<p>Drop your file here</p>}
+										fullWidth
 									>
 										<ImageField source="url" />
 									</ImageInput>
-								</Grid>
-								<Grid item sm={6} xs={12}>
-									<BooleanInput label="Estado" source="status" />
 								</Grid>
 							</Grid>
 						</CardContent>
@@ -61,7 +59,7 @@ const SubOffersForm = (props) => {
 							invalid={formProps.invalid}
 							handleSubmit={formProps.handleSubmit}
 							saving={formProps.saving}
-							resource="suboffers"
+							resource="promotions"
 						/>
 					</form>
 				</Card>
@@ -69,4 +67,4 @@ const SubOffersForm = (props) => {
 		/>
 	);
 };
-export default SubOffersEdit;
+export default PromotionsCreate;

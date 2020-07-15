@@ -1,12 +1,17 @@
 import React from 'react';
-import {List, Datagrid, TextField, EditButton, ReferenceField, SimpleList} from 'react-admin';
+import {List, Datagrid, TextField, NumberField, EditButton, SimpleList} from 'react-admin';
 import {useMediaQuery} from '@material-ui/core';
 import {CustomBoolean} from '../../common/fields/Boolean';
 import {CustomDate} from '../../common/fields/Date';
 import Filters from './Filter';
+import {makeStyles} from '@material-ui/core';
 
-const SubOffersList = (props) => {
+const useDatagridStyles = makeStyles({
+	total: {fontWeight: 'bold'},
+});
+const PromotionsList = (props) => {
 	const isSmall = useMediaQuery((theme) => theme.breakpoints.down('xs'));
+	const classes = useDatagridStyles();
 	return (
 		<List
 			{...props}
@@ -22,11 +27,17 @@ const SubOffersList = (props) => {
 				/>
 			) : (
 				<Datagrid rowClick="show">
-					<TextField label="Nombre" source="name" />
+					<TextField label="Título" source="title" />
+					<NumberField
+						source="price"
+						label="Precio"
+						options={{
+							style: 'currency',
+							currency: 'USD',
+						}}
+						className={classes.total}
+					/>
 					<CustomBoolean label="Estado" source="status" />
-					<ReferenceField label="Oferta" source="category" reference="offers">
-						<TextField source="name" />
-					</ReferenceField>
 					<CustomDate label="Editado" source="updatedAt" />
 					<EditButton label="Editar" />
 				</Datagrid>
@@ -34,4 +45,4 @@ const SubOffersList = (props) => {
 		</List>
 	);
 };
-export default SubOffersList;
+export default PromotionsList;

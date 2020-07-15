@@ -4,7 +4,7 @@ export const PrepareEditObject = async (resource, params) => {
 	const {data, previousData} = params;
 	if (resource === 'users') return await user(resource, data, previousData);
 	else if (resource === 'offers') return category(resource, data, previousData);
-	else if (resource === 'suboffers') return subcategory(resource, data, previousData);
+	else if (resource === 'promotions') return subcategory(resource, data, previousData);
 
 	return {};
 };
