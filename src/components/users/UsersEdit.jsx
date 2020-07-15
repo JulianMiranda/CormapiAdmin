@@ -41,7 +41,8 @@ const UserForm = (props) => {
 								<Box flex={2} mr={{md: 0, lg: '1em'}}>
 									<Box display={{xs: 'block', sm: 'flex'}}>
 										<Box flex={1} mr={{xs: 0, sm: '0.5em'}}>
-											<TextInput source="name" resource="users" fullWidth />
+											<TextInput source="name" resource="users" />
+											<TextInput source="last_name" resource="users" />
 										</Box>
 										<Box flex={1} ml={{xs: 0, sm: '0.5em'}}>
 											<TextInput
@@ -67,12 +68,9 @@ const UserForm = (props) => {
 											/>
 											<BooleanInput label="Estado" source="status" />
 										</Box>
-
-										{props.record.role === 'JUN' && (
-											<Box flex={1} ml="1em" mr={{xs: 0, sm: '0.5em'}}>
-												<TextInput source="serviceZone" resource="users" fullWidth />
-											</Box>
-										)}
+										<Box flex={1} mr={{xs: 0, sm: '0.5em'}}>
+											<TextInput source="phone" resource="users" />
+										</Box>
 									</Box>
 								</Box>
 							</Box>

@@ -1,5 +1,3 @@
-import {compareFilterSub} from './compareFilterSub';
-
 export const PrepareGetObject = async (resource, params) => {
 	if (resource === 'users') return await user(params);
 	else if (resource === 'offers') return offers(params);
@@ -30,6 +28,11 @@ const user = (params) => {
 };
 
 const promotions = async (resource, params) => {
+	const {pagination, sort, filter} = params;
+	const {page, perPage} = pagination;
+	const {q, ...queryFilter} = filter;
+
+	const search = q ? {text: q, fields: ['title']} : {};
 	const population = [
 		{
 			path: 'image',
@@ -39,16 +42,9 @@ const promotions = async (resource, params) => {
 			},
 		},
 	];
-	const {pagination, sort, filter} = params;
-	const {page, perPage} = pagination;
-	const {q, ...queryFilter} = filter;
-
-	const filterP = await compareFilterSub(queryFilter);
-
-	const search = q ? {text: q, fields: ['name']} : {};
 
 	const query = {
-		filter: filterP,
+		filter: queryFilter,
 		search,
 		fields: {},
 		docsPerPage: perPage,
@@ -65,7 +61,7 @@ const offers = async (params) => {
 	const {page, perPage} = pagination;
 	const {q, ...queryFilter} = filter;
 
-	const search = q ? {text: q, fields: ['name']} : {};
+	const search = q ? {text: q, fields: ['title']} : {};
 
 	const query = {
 		filter: queryFilter,
