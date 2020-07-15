@@ -1,12 +1,12 @@
 import {UploadImage} from '../firebase/uploadImage';
 
 export const PrepareCreateObject = async (resource, params) => {
-	if (resource === 'categories') return await categories(resource, params);
-	else if (resource === 'subcategories') return subcategories(resource, params);
+	if (resource === 'offers') return await offers(resource, params);
+	else if (resource === 'suboffers') return suboffers(resource, params);
 
 	return {};
 };
-const categories = async (resource, params) => {
+const offers = async (resource, params) => {
 	const object = {};
 	object.name = params.data.name;
 	const url = await UploadImage(resource, [params.data.image]);
@@ -15,7 +15,7 @@ const categories = async (resource, params) => {
 
 	return object;
 };
-const subcategories = async (resource, params) => {
+const suboffers = async (resource, params) => {
 	const object = {};
 
 	object.name = params.data.name;

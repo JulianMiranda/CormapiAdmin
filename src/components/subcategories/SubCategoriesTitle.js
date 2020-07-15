@@ -1,5 +1,5 @@
 import React from 'react';
 
-export const SubCategoriesTitle = ({record}) => {
+export const SubOffersTitle = ({record}) => {
 	return <span>Negocio {record ? `"${record.name}"` : ''}</span>;
 };

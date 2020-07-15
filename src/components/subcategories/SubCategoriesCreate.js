@@ -12,15 +12,15 @@ import {
 } from 'react-admin';
 import {Grid, Card, CardContent} from '@material-ui/core';
 
-const SubCategoriesCreate = (props) => {
+const SubOffersCreate = (props) => {
 	return (
-		<Create {...props} title="Crear SubCategoría" component="div">
-			<SubCategoriesForm />
+		<Create {...props} title="Crear SubOferta" component="div">
+			<SubOffersForm />
 		</Create>
 	);
 };
 
-const SubCategoriesForm = (props) => {
+const SubOffersForm = (props) => {
 	return (
 		<FormWithRedirect
 			{...props}
@@ -34,14 +34,14 @@ const SubCategoriesForm = (props) => {
 								</Grid>
 
 								<Grid item sm={6} xs={12}>
-									<ReferenceInput source="category" reference="categories">
+									<ReferenceInput source="category" reference="offers">
 										<SelectInput source="name" />
 									</ReferenceInput>
 								</Grid>
 								<Grid item sm={6} xs={12}>
 									<ImageInput
 										source="image"
-										resource="subcategories"
+										resource="suboffers"
 										accept="image/*"
 										placeholder={<p>Drop your file here</p>}
 										fullWidth
@@ -59,7 +59,7 @@ const SubCategoriesForm = (props) => {
 							invalid={formProps.invalid}
 							handleSubmit={formProps.handleSubmit}
 							saving={formProps.saving}
-							resource="subcategories"
+							resource="suboffers"
 						/>
 					</form>
 				</Card>
@@ -67,4 +67,4 @@ const SubCategoriesForm = (props) => {
 		/>
 	);
 };
-export default SubCategoriesCreate;
+export default SubOffersCreate;

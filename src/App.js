@@ -6,6 +6,7 @@ import {CustomLoginPage} from './auth/Login';
 import {Layout} from './components/layout';
 
 import Users from './components/users';
+import Offers from './components/offers';
 
 import themeReducer from './themeReducer';
 import customRoutes from './routes';
@@ -28,6 +29,7 @@ const App = (props) => {
 		>
 			{(permissions) =>
 				permissions === 'ADMIN' && [
+					<Resource options={{label: 'Ofertas'}} name="offers" {...Offers} />,
 					<Resource options={{label: 'Usuarios'}} name="users" {...Users} />,
 				]
 			}

@@ -5,12 +5,12 @@ import {CustomBoolean} from '../../common/fields/Boolean';
 import {CustomDate} from '../../common/fields/Date';
 import Filters from './Filter';
 
-const SubCategoriesList = (props) => {
+const SubOffersList = (props) => {
 	const isSmall = useMediaQuery((theme) => theme.breakpoints.down('xs'));
 	return (
 		<List
 			{...props}
-			title="SubCategorías"
+			title="SubOfertas"
 			sort={{field: 'createdAt', order: 'DESC'}}
 			filters={<Filters />}
 			exporter={false}
@@ -24,7 +24,7 @@ const SubCategoriesList = (props) => {
 				<Datagrid rowClick="show">
 					<TextField label="Nombre" source="name" />
 					<CustomBoolean label="Estado" source="status" />
-					<ReferenceField label="Categoría" source="category" reference="categories">
+					<ReferenceField label="Oferta" source="category" reference="offers">
 						<TextField source="name" />
 					</ReferenceField>
 					<CustomDate label="Editado" source="updatedAt" />
@@ -34,4 +34,4 @@ const SubCategoriesList = (props) => {
 		</List>
 	);
 };
-export default SubCategoriesList;
+export default SubOffersList;

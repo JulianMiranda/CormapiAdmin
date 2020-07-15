@@ -2,8 +2,8 @@ import {compareFilterSub} from './compareFilterSub';
 
 export const PrepareGetObject = async (resource, params) => {
 	if (resource === 'users') return await user(params);
-	else if (resource === 'categories') return categories(params);
-	else if (resource === 'subcategories') return subcategories(resource, params);
+	else if (resource === 'offers') return offers(params);
+	else if (resource === 'suboffers') return suboffers(resource, params);
 
 	return {};
 };
@@ -29,7 +29,7 @@ const user = (params) => {
 	return query;
 };
 
-const subcategories = async (resource, params) => {
+const suboffers = async (resource, params) => {
 	const population = [
 		{
 			path: 'image',
@@ -60,7 +60,7 @@ const subcategories = async (resource, params) => {
 	return query;
 };
 
-const categories = async (params) => {
+const offers = async (params) => {
 	const {pagination, sort, filter} = params;
 	const {page, perPage} = pagination;
 	const {q, ...queryFilter} = filter;

@@ -1,6 +1,6 @@
 export const PrepareGetManyObject = async (resource, params) => {
 	if (resource === 'users') return await user();
-	if (resource === 'categories') return await common();
+	if (resource === 'offers') return await common();
 	return {};
 };
 

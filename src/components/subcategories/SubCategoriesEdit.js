@@ -10,18 +10,18 @@ import {
 	FormWithRedirect,
 	BooleanInput,
 } from 'react-admin';
-import {SubCategoriesTitle} from './SubCategoriesTitle';
+import {SubOffersTitle} from './SubOffersTitle';
 import {Grid, CardContent, Card} from '@material-ui/core';
 
-const SubCategoriesEdit = (props) => {
+const SubOffersEdit = (props) => {
 	return (
-		<Edit {...props} title={<SubCategoriesTitle />} component="div">
-			<SubCategoriesForm />
+		<Edit {...props} title={<SubOffersTitle />} component="div">
+			<SubOffersForm />
 		</Edit>
 	);
 };
 
-const SubCategoriesForm = (props) => {
+const SubOffersForm = (props) => {
 	return (
 		<FormWithRedirect
 			{...props}
@@ -34,14 +34,14 @@ const SubCategoriesForm = (props) => {
 									<TextInput label="Nombre" source="name" />
 								</Grid>{' '}
 								<Grid item sm={6} xs={12}>
-									<ReferenceInput label="Categoría" source="category.id" reference="categories">
+									<ReferenceInput label="Oferta" source="category.id" reference="offers">
 										<SelectInput source="name" />
 									</ReferenceInput>
 								</Grid>
 								<Grid item sm={6} xs={12}>
 									<ImageInput
 										source="image"
-										resource="subcategories"
+										resource="suboffers"
 										accept="image/*"
 										placeholder={<p>Drop your file here</p>}
 									>
@@ -61,7 +61,7 @@ const SubCategoriesForm = (props) => {
 							invalid={formProps.invalid}
 							handleSubmit={formProps.handleSubmit}
 							saving={formProps.saving}
-							resource="subcategories"
+							resource="suboffers"
 						/>
 					</form>
 				</Card>
@@ -69,4 +69,4 @@ const SubCategoriesForm = (props) => {
 		/>
 	);
 };
-export default SubCategoriesEdit;
+export default SubOffersEdit;

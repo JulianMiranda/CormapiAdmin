@@ -3,15 +3,15 @@ import {useSelector} from 'react-redux';
 import {useMediaQuery} from '@material-ui/core';
 import {MenuItemLink} from 'react-admin';
 
-import categories from '../categories';
-import subcategories from '../subcategories';
+import offers from '../offers'; /* 
+import suboffers from '../suboffers'; */
 import users from '../users';
 import SubMenu from './SubMenu';
 import SettingsIcon from '@material-ui/icons/Settings';
 
 const Menu = ({onMenuClick, dense, logout}) => {
 	const [state, setState] = useState({
-		menuCategories: false,
+		menuOffers: false,
 	});
 
 	const isSmall = useMediaQuery((theme) => theme.breakpoints.down('xs'));
@@ -25,29 +25,29 @@ const Menu = ({onMenuClick, dense, logout}) => {
 		<div>
 			{' '}
 			<SubMenu
-				handleToggle={() => handleToggle('menuCategories')}
-				isOpen={state.menuCategories}
+				handleToggle={() => handleToggle('menuOffers')}
+				isOpen={state.menuOffers}
 				sidebarIsOpen={open}
-				name="Categorías"
-				icon={<categories.icon />}
+				name="Ofertas"
+				icon={<offers.icon />}
 				dense={dense}
 			>
 				<MenuItemLink
-					to={`/categories`}
-					primaryText="Categorías"
-					leftIcon={<categories.icon />}
+					to={`/offers`}
+					primaryText="Ofertas"
+					leftIcon={<offers.icon />}
 					onClick={onMenuClick}
 					sidebarIsOpen={open}
 					dense={dense}
 				/>
-				<MenuItemLink
-					to={`/subcategories`}
-					primaryText="SubCategorías"
-					leftIcon={<subcategories.icon />}
+				{/* <MenuItemLink
+					to={`/suboffers`}
+					primaryText="SubOfertas"
+					leftIcon={<suboffers.icon />}
 					onClick={onMenuClick}
 					sidebarIsOpen={open}
 					dense={dense}
-				/>
+				/> */}
 			</SubMenu>
 			<MenuItemLink
 				to={`/users`}

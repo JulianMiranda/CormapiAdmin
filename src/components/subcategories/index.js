@@ -1,13 +1,13 @@
 import HomeWorkIcon from '@material-ui/icons/HomeWork';
-import SubCategoriesList from './SubCategoriesList';
-import SubCategoriesEdit from './SubCategoriesEdit';
-import SubCategoriesCreate from './SubCategoriesCreate';
-import SubCategoriesShow from './SubCategoriesShow';
+import SubOffersList from './SubOffersList';
+import SubOffersEdit from './SubOffersEdit';
+import SubOffersCreate from './SubOffersCreate';
+import SubOffersShow from './SubOffersShow';
 
 export default {
 	icon: HomeWorkIcon,
-	list: SubCategoriesList,
-	edit: SubCategoriesEdit,
-	create: SubCategoriesCreate,
-	show: SubCategoriesShow,
+	list: SubOffersList,
+	edit: SubOffersEdit,
+	create: SubOffersCreate,
+	show: SubOffersShow,
 };

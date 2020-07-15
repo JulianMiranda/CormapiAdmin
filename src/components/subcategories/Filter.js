@@ -5,9 +5,9 @@ const OffersFilter = (props) => (
 	<Filter {...props}>
 		<SearchInput source="q" alwaysOn />
 		<ReferenceInput
-			label="Categoría"
+			label="Oferta"
 			source="category"
-			reference="categories"
+			reference="offers"
 			sort={{field: 'id', order: 'ASC'}}
 		>
 			<SelectInput source="name" />

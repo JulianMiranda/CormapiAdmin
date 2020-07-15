@@ -1,19 +1,19 @@
 import React from 'react';
 import {useShowController, ImageField, Show} from 'react-admin';
 import {Typography, Grid, CardContent, Card} from '@material-ui/core';
-import {SubCategoriesTitle} from './SubCategoriesTitle';
+import {SubOffersTitle} from './SubOffersTitle';
 import {CustomBoolean} from '../../common/fields/Boolean';
 import {useMediaQuery} from '@material-ui/core';
-import {useStyles} from './SubCategoriesStyles';
+import {useStyles} from './SubOffersStyles';
 
-const SubCategoriesShow = (props) => {
+const SubOffersShow = (props) => {
 	const {record} = useShowController(props);
 	const classes = useStyles();
 	console.log(record, 'Record');
 	const isSmall = useMediaQuery((theme) => theme.breakpoints.down('xs'));
 	if (!record) return null;
 	return (
-		<Show title={<SubCategoriesTitle />} {...props}>
+		<Show title={<SubOffersTitle />} {...props}>
 			{isSmall ? (
 				<Card>
 					<CardContent>
@@ -94,7 +94,7 @@ const SubCategoriesShow = (props) => {
 									<Grid item xs={12}>
 										<div className={classes.Space}>&nbsp;</div>
 										<Typography variant="h5" gutterBottom align="center">
-											Categoría: <i>{record.category.name}</i>
+											Oferta: <i>{record.category.name}</i>
 										</Typography>
 									</Grid>
 								</Grid>
@@ -107,4 +107,4 @@ const SubCategoriesShow = (props) => {
 	);
 };
 
-export default SubCategoriesShow;
+export default SubOffersShow;

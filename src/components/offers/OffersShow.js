@@ -1,17 +1,17 @@
 import React from 'react';
 import {useShowController, ImageField, Show} from 'react-admin';
 import {Typography, Grid, CardContent, Card} from '@material-ui/core';
-import {CategoriesTitle} from './CategoriesTitle';
+import {OffersTitle} from './OffersTitle';
 import {CustomBoolean} from '../../common/fields/Boolean';
-import {useStyles} from './CategoriesStyles';
+import {useStyles} from './OffersStyles';
 
-const CategoriesShow = (props) => {
+const OffersShow = (props) => {
 	const {record} = useShowController(props);
 	const classes = useStyles();
 
 	if (!record) return null;
 	return (
-		<Show title={<CategoriesTitle />} {...props}>
+		<Show title={<OffersTitle />} {...props}>
 			<Card>
 				<CardContent>
 					<Grid container spacing={2}>
@@ -61,4 +61,4 @@ const CategoriesShow = (props) => {
 	);
 };
 
-export default CategoriesShow;
+export default OffersShow;

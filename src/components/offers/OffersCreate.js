@@ -1,14 +1,14 @@
 import React from 'react';
 import {Create, SimpleForm, TextInput, ImageInput, ImageField, required} from 'react-admin';
 
-const CategoriesCreate = (props) => {
+const OffersCreate = (props) => {
 	return (
-		<Create {...props} title="Crear Categoría">
+		<Create {...props} title="Crear Oferta">
 			<SimpleForm redirect="list">
 				<TextInput source="name" validate={required()} />
 				<ImageInput
 					source="image"
-					resource="categories"
+					resource="offers"
 					accept="image/*"
 					placeholder={<p>Drop your file here</p>}
 				>
@@ -18,4 +18,4 @@ const CategoriesCreate = (props) => {
 		</Create>
 	);
 };
-export default CategoriesCreate;
+export default OffersCreate;

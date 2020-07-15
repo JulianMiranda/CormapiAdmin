@@ -9,16 +9,16 @@ import {
 	BooleanInput,
 } from 'react-admin';
 import {Grid, CardContent, Card} from '@material-ui/core';
-import {CategoriesTitle} from './CategoriesTitle';
+import {OffersTitle} from './OffersTitle';
 
-const CategoriesEdit = (props) => {
+const OffersEdit = (props) => {
 	return (
-		<Edit {...props} title={<CategoriesTitle />} component="div">
-			<CategoriesForm />
+		<Edit {...props} title={<OffersTitle />} component="div">
+			<OffersForm />
 		</Edit>
 	);
 };
-const CategoriesForm = (props) => {
+const OffersForm = (props) => {
 	return (
 		<FormWithRedirect
 			{...props}
@@ -37,7 +37,7 @@ const CategoriesForm = (props) => {
 							<Grid item sm={6} xs={12}>
 								<ImageInput
 									source="image"
-									resource="subcategories"
+									resource="suboffers"
 									accept="image/*"
 									placeholder={<p>Drop your file here</p>}
 								>
@@ -52,7 +52,7 @@ const CategoriesForm = (props) => {
 							invalid={formProps.invalid}
 							handleSubmit={formProps.handleSubmit}
 							saving={formProps.saving}
-							resource="categories"
+							resource="offers"
 						/>
 					</form>
 				</Card>
@@ -61,4 +61,4 @@ const CategoriesForm = (props) => {
 	);
 };
 
-export default CategoriesEdit;
+export default OffersEdit;
