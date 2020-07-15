@@ -16,9 +16,17 @@ const OffersShow = (props) => {
 				<CardContent>
 					<Grid container spacing={2}>
 						<Grid item xs={12} sm={6}>
-							<Typography variant="h4" gutterBottom align="center">
-								{record.name}
+							<Typography variant="h4" gutterBottom align="left">
+								Título: <i>{record.title}</i>
 							</Typography>
+							<Typography variant="h5" gutterBottom align="left">
+								Descripción: <i>{record.description}</i>
+							</Typography>
+							<Grid item xs={12}>
+								<Typography variant="h5" gutterBottom align="left">
+									Precio: <i>{record.price}</i>
+								</Typography>
+							</Grid>
 							<Grid item xs={12}>
 								<Typography variant="h4" gutterBottom align="center">
 									<ImageField record={record} align="center" source="image.url" />

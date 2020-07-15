@@ -1,5 +1,5 @@
 import React from 'react';
 
 export const PromotionsTitle = ({record}) => {
-	return <span>Negocio {record ? `"${record.name}"` : ''}</span>;
+	return <span>Promoción {record ? `"${record.title}"` : ''}</span>;
 };

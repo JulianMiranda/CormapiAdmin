@@ -3,12 +3,11 @@ import {
 	Edit,
 	TextInput,
 	ImageInput,
-	ReferenceInput,
 	ImageField,
-	SelectInput,
 	Toolbar,
 	FormWithRedirect,
 	BooleanInput,
+	NumberInput,
 } from 'react-admin';
 import {PromotionsTitle} from './PromotionsTitle';
 import {Grid, CardContent, Card} from '@material-ui/core';
@@ -31,29 +30,31 @@ const PromotionsForm = (props) => {
 						<CardContent>
 							<Grid container spacing={2}>
 								<Grid item sm={6} xs={12}>
-									<TextInput label="Nombre" source="name" />
-								</Grid>{' '}
-								<Grid item sm={6} xs={12}>
-									<ReferenceInput label="Oferta" source="category.id" reference="offers">
-										<SelectInput source="name" />
-									</ReferenceInput>
+									<TextInput label="Título" source="title" />
 								</Grid>
 								<Grid item sm={6} xs={12}>
-									<ImageInput
-										source="image"
-										resource="promotions"
-										accept="image/*"
-										placeholder={<p>Drop your file here</p>}
-									>
-										<ImageField source="url" />
-									</ImageInput>
+									<TextInput label="Descripción" source="description" />
 								</Grid>
-								<Grid item sm={6} xs={12}>
-									<BooleanInput label="Estado" source="status" />
+								<Grid container spacing={2}>
+									<Grid item sm={6} xs={12}>
+										<NumberInput label="Precio" source="price" />
+									</Grid>
+									<Grid item sm={6} xs={12}>
+										<BooleanInput label="Estado" source="status" />
+									</Grid>
 								</Grid>
 							</Grid>
+							<Grid item sm={6} xs={12}>
+								<ImageInput
+									source="image"
+									resource="promotions"
+									accept="image/*"
+									placeholder={<p>Drop your file here</p>}
+								>
+									<ImageField source="url" />
+								</ImageInput>
+							</Grid>
 						</CardContent>
-
 						<Toolbar
 							record={formProps.record}
 							basePath={formProps.basePath}
