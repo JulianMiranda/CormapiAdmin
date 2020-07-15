@@ -3,8 +3,8 @@ import {UploadImage} from '../firebase/uploadImage';
 export const PrepareEditObject = async (resource, params) => {
 	const {data, previousData} = params;
 	if (resource === 'users') return await user(resource, data, previousData);
-	else if (resource === 'offers') return category(resource, data, previousData);
-	else if (resource === 'promotions') return subcategory(resource, data, previousData);
+	else if (resource === 'offers') return offer(resource, data, previousData);
+	else if (resource === 'promotions') return promotion(resource, data, previousData);
 
 	return {};
 };
@@ -36,11 +36,17 @@ const user = async (resource, data, previousData) => {
 	return object;
 };
 
-const category = async (resource, data, previousData) => {
+const offer = async (resource, data, previousData) => {
 	const object = {};
 
-	if (data.name !== previousData.name) {
-		object.name = data.name;
+	if (data.title !== previousData.title) {
+		object.title = data.title;
+	}
+	if (data.description !== previousData.description) {
+		object.description = data.description;
+	}
+	if (data.price !== previousData.price) {
+		object.price = data.price;
 	}
 	if (!data.image.id) {
 		const url = await UploadImage(resource, [data.image]);
@@ -52,21 +58,24 @@ const category = async (resource, data, previousData) => {
 
 	return object;
 };
-const subcategory = async (resource, data, previousData) => {
+const promotion = async (resource, data, previousData) => {
 	const object = {};
 
-	if (data.name !== previousData.name) {
-		object.name = data.name;
+	if (data.title !== previousData.title) {
+		object.title = data.title;
 	}
-	if (data.status !== previousData.status) {
-		object.status = data.status;
+	if (data.description !== previousData.description) {
+		object.description = data.description;
 	}
-	if (data.category.id !== previousData.category.id) {
-		object.category = data.category.id;
+	if (data.price !== previousData.price) {
+		object.price = data.price;
 	}
 	if (!data.image.id) {
 		const url = await UploadImage(resource, [data.image]);
 		object.image = {url: url[0]};
+	}
+	if (data.status !== previousData.status) {
+		object.status = data.status;
 	}
 	return object;
 };
